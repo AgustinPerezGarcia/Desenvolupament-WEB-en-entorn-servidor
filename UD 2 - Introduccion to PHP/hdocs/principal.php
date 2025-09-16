@@ -47,6 +47,10 @@
         <H3>Enviar mail</H3>
         <a href="mailto:agupergar@alu.edu.gva.es">Mail</a>
 
+        <?php
+            include_once("./footer.inc.php")
+        ?>
+
     </footer>
 
 </body>
