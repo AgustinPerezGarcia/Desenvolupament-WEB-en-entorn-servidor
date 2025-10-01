@@ -31,12 +31,12 @@
         
         <form name="input" action="./consulta.php" method="post">
 
-            <p>Nombre: <input type="text" name="nombre"></p>
-            <p>Apellidos: <input type="text" name="apellidos"></p>
-            <p>Telefono: <input type="tel" name="telefono"></p>
-            <p>Correo: <input type="email" name="email"></p>
+            <p>Nombre: <input type="text" name="nombre" id="nombre"></p>
+            <p>Apellidos: <input type="text" name="apellidos" id="apellidos" ></p>
+            <p>Telefono: <input type="tel" name="telefono" id="telefono" ></p>
+            <p>Correo: <input type="email" name="email" id="email" ></p>
 
-            <p> Cuando es tu cumpleaños? <input type="date"></p>
+            <p> Cuando es tu cumpleaños? <input type="date" name="fecha" id="fecha"></p>
 
             <p> A que clase vas? </p>
                 <p> DAW <input type="radio" name="clase" value="DAW"> </p>
@@ -44,7 +44,6 @@
                 <p> ASIX <input type="radio" name="clase" value="ASIX"> </p>
 
             <p> Que clases tienes?</p>
-            
                 <p> DWES <input type="checkbox" name="modulo[]" value="DWES"></p>
                 <p> DWEC <input type="checkbox" name="modulo[]" value="DWEC"></p>
                 <p> DAW <input type="checkbox" name="modulo[]" value="DAW"></p>
@@ -52,7 +51,7 @@
                 <p> FOL <input type="checkbox" name="modulo[]" value="FOL"></p>
 
             Introduce un comentario:
-            <p><textarea name="comentario"></textarea></p>
+            <p><textarea name="comentario" id="comentario"></textarea></p>
 
             <p><input type="reset" value="Borrar formulario"></p>
             <p><input type="submit" value="Enviar formulario"></p>   
