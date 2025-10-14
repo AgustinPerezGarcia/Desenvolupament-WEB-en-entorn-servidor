@@ -1,19 +1,21 @@
 <?php
 
-$conexion = new mysqli('localhost', 'tienda', 'tienda', 'tienda');
+$conexion = new mysqli('localhost', 'user', 'user', 'tienda');
 //print $conexion->server_info;
 
-$consulta = "SELECT producto, unidades FROM stock";
+$consulta = "SELECT cod, nombre_corto FROM producto";
 $respuesta = $conexion->query($consulta);
 
-$filas = $respuesta->fetch_object();
-print "<ul>";
-while ($filas != null) {
+$filas = $respuesta->fetch_all();
 
-    print "<li>Producto: ".$filas->producto." Cantidad: ".$filas->unidades."</li>";
-    $filas = $respuesta->fetch_object();
+print "<ul>";
+foreach ($filas as $valor) {
+
+        print "<li><a href='stock.php?cod=".$valor[0]."'>Producto: ".$valor[1]."</li>";
+
 }
 print "</ul>";
+$filas = $respuesta->fetch_assoc();
 
 
 ?>
