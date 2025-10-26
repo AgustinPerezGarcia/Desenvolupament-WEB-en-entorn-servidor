@@ -7,6 +7,11 @@ $respuesta = $conexion->query($consulta);
 
 $filas = $respuesta->fetch_all();
 
+if (isset($_GET['info'])) {
+        print "<script>alert('".$_GET['info']."')</script>";
+
+}
+
 print "<ul>";
 foreach ($filas as $valor) {
 
@@ -14,5 +19,9 @@ foreach ($filas as $valor) {
 
 }
 print "</ul>";
+
+print "<button><a href='albumnuevo.php'>Crear Album</button>";
+print "<button><a href='canciones.php'>Buscar Canciones</button>";
+
 
 ?>

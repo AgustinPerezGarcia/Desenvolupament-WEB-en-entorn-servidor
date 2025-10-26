@@ -4,7 +4,8 @@
 
     $consulta = 'SELECT titulo FROM album where codigo = '.$_GET['cod'];
 
-    $ultimaPosicion = 'SELECT posicion FROM cancion where album = '.$_GET['cod'];
+    $ultimaPosicion = 'SELECT posicion FROM cancion where album = '.$_GET['cod'].' order by posicion';
+
 
     $respuestaUltimaPosicion = $conexion->query($ultimaPosicion);
     $posicionArray = $respuestaUltimaPosicion->fetch_all();
@@ -26,8 +27,8 @@
         try {
             $duracion = sprintf("%02d:%02d:%02d", $_POST['hora'], $_POST['minuto'], $_POST['segundo']);
 
-            $sql = "INSERT INTO cancion (titulo, album, posicion, duracion, genero) VALUES (".$_POST['nueva'].", ".$_GET['cod'].", $duracion,".$_POST['genero'].")"; 
-
+            $sql = "INSERT INTO cancion (titulo, album, posicion, duracion, genero) VALUES ('".$_POST['nueva']."', ".$_GET['cod'].", $posicion, '$duracion', '".$_POST['genero']."')";
+            
             $todo_bien = $conexion->query($sql);
             if(!$todo_bien){
                 throw new Exception('Error Insert', 1);
@@ -55,11 +56,11 @@
 
                 <p>Género musical:
                     <select name="genero" id="genero" required>
-                        <option value="rock">Rock</option>
-                        <option value="pop">Pop</option>
-                        <option value="jazz">Jazz</option>
-                        <option value="metal">Metal</option>
-                        <option value="clasica">Clásica</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Jazz">Jazz</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Clasica">Clásica</option>
                     </select>
                 </p>
                

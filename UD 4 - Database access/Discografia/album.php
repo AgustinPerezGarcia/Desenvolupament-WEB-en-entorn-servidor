@@ -4,8 +4,15 @@
 
     $consulta = 'SELECT * FROM cancion where album = '.$_GET['cod'].' order by posicion asc';
 
+    $album = 'SELECT titulo FROM album where codigo = '.$_GET['cod'];
+
     $respuesta = $conexion->query($consulta);
     $filas = $respuesta->fetch_all();
+    
+    $respuestaAlbum = $conexion->query($album);
+    $filasAlbum = $respuestaAlbum->fetch_all();
+
+    print "<h1>".$filasAlbum[0][0]."</h1>";
 
     print "<ul>";
     foreach ($filas as $valor) {
