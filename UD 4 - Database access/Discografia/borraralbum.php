@@ -1,5 +1,8 @@
 <?php
-    $conexion = new mysqli('localhost', 'discografia', 'discografia', 'discografia');
+include("sesion.php");
+include("cerrarsesion.php");
+
+$conexion = new mysqli('localhost', 'discografia', 'discografia', 'discografia');
 
 $conexion->begin_transaction();
 

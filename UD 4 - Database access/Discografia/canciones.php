@@ -1,4 +1,7 @@
 <?php
+include("sesion.php");
+include("cerrarsesion.php");
+
 $conexion = new mysqli('localhost', 'discografia', 'discografia', 'discografia');
 
 $terminoBusqueda = trim($_POST['terminoBusqueda'] ?? '');
