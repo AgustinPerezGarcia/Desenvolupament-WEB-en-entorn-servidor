@@ -1,4 +1,7 @@
 <?php
+include("sesion.php");
+include("cerrarsesion.php");
+
 $conexion = new mysqli('localhost', 'discografia', 'discografia', 'discografia');
 
 $terminoBusqueda = trim($_POST['terminoBusqueda'] ?? '');
@@ -27,6 +30,8 @@ print '</select></p>';
 
 print '<p><input type="submit" value="Buscar"></p>';
 print '</form>';
+
+
 
 if ($terminoBusqueda !== '') {
 
@@ -69,23 +74,51 @@ if ($terminoBusqueda !== '') {
     $resultado = $consulta->get_result();
 
     if ($resultado->num_rows > 0) {
-        print "<ul>";
+        $result = "<ul>";
         while ($fila = $resultado->fetch_assoc()) {
-            print "<li>";
-            print "Canción: " . htmlspecialchars($fila['tituloCancion']);
-            print " | Álbum: " . htmlspecialchars($fila['tituloAlbum']);
-            print " | Posición: " . (int)$fila['posicion'];
-            print " | Duración: " . htmlspecialchars($fila['duracion']);
-            print " | Género: " . htmlspecialchars($fila['genero']);
-            print "</li>";
+            $result .= "<li>";
+            $result .= "Canción: " . htmlspecialchars($fila['tituloCancion']);
+            $result .= " | Álbum: " . htmlspecialchars($fila['tituloAlbum']);
+            $result .= " | Posición: " . $fila['posicion'];
+            $result .= " | Duración: " . htmlspecialchars($fila['duracion']);
+            $result .= " | Género: " . htmlspecialchars($fila['genero']);
+            $result .= "</li>";
         }
-        print "</ul>";
+        $result .= "</ul>";
+
+        print $result;
+
+        $busquedas = "";
+        if (isset($_COOKIE['busquedas'])) {
+            $busquedas = $_COOKIE['busquedas'];
+        }
+
+        $busquedas .= "<h3>" . htmlspecialchars($terminoBusqueda) . "</h3>" . $result . "||";
+
+        setcookie('busquedas', $busquedas, time() + 86400);
+
+
     } else {
         print "<p>No se encontraron canciones que coincidan con la búsqueda.</p>";
     }
 
     $consulta->close();
 }
+
+if (isset($_COOKIE['busquedas'])) {
+    $busquedas = $_COOKIE['busquedas'];
+
+    $lista = explode("||", $busquedas);
+
+    echo "<h2>Historial de búsquedas:</h2>";
+
+    foreach ($lista as $busqueda) {
+        if (trim($busqueda) !== "") {
+            echo $busqueda;
+        }
+    }
+}
+
 
 $conexion->close();
 ?>
