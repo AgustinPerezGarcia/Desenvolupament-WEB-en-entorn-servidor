@@ -1,0 +1,3 @@
+<nav>
+    <strong><a href="region.php?region=Kanto&id=1">G1 Kanto</a> &nbsp;&nbsp; <a href="region.php?region=Johto&id=2">G2 Johto</a> &nbsp;&nbsp; <a href="region.php?region=Hoenn&id=3">G3 Hoenn</a>  &nbsp;&nbsp; <a href="region.php?region=Sinnoh&id=4">G4 Sinnoh</a>  &nbsp;&nbsp; <a href="region.php?region=Unova&id=5">G5 Unova</a>  &nbsp;&nbsp; <a href="region.php?region=Kalos&id=6">G6 Kalos</a>  &nbsp;&nbsp; <a href="region.php?region=Alola&id=7">G7 Alola</a> &nbsp;&nbsp; <a href="region.php?region=Galar&id=8">G8 Galar</a> &nbsp;&nbsp; <a href="region.php?region=Paldea&id=9">G9 Paldea</a> &nbsp;&nbsp; Búsqueda</strong> 
+</nav>
