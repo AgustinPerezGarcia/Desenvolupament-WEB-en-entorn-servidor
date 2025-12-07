@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busqueda</title>
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
     <?php include('datos.ini.php'); ?>
 
 </head>
@@ -20,7 +20,12 @@ include('nav.php');
 echo "<div></div>";
 
 echo '<div id="iniciales">';
-    formularioBusqueda();
+    if (isset($_POST['nombre']) || isset($_POST['tipo']) || isset($_POST['region'])) {
+        resultadoBusqueda($_POST['nombre'], $_POST['tipo'], $_POST['region']);
+    } else {
+        formularioBusqueda();
+    }
+    
 echo '</div>';
 
 echo '<div class="abajo"></div>';
