@@ -3,5 +3,5 @@
      <strong>
         Desarrollo Web en Entorno Servidor 
      </strong>&nbsp; 
-     2023/2024 IES Serra Perenxisa.
+     2025/2026 IES Serra Perenxisa.
 </footer>

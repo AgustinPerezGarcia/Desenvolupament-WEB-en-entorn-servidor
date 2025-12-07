@@ -104,4 +104,37 @@ function mostrarInfoPokemon($name){
 
 }
 
+function formularioBusqueda(){
+    $type = llamada('type?limit=22');
+
+    echo '  <form action="#" method="post">
+                <input type="text" id="nombre" name="nombre" placeholder="Pokemon">
+                
+                <select id="tipo" name="tipo">';
+
+    foreach ($type['results'] as $key => $value) {
+        $tipo = llamada('type/'.$value['name']);
+        foreach ($tipo['names'] as $key => $idioma) {
+            if ($idioma['language']['name'] == 'es') {
+            echo '  <option value="'.$value['name'].'">'.$idioma['name'] . '</option>';
+            }
+        }
+    }
+    echo '      <option value="shadow">Sombra</option></select>
+                <select id="region" name="region">
+                    <option value="1">Kanto</option>
+                    <option value="2">Johto</option>
+                    <option value="3">Hoenn</option>
+                    <option value="4">Sinnoh</option>
+                    <option value="5">Unova</option>
+                    <option value="6">Kalos</option>
+                    <option value="7">Alola</option>
+                    <option value="8">Galar</option>
+                    <option value="9">Paldea</option>
+                </select>
+
+                <button type="submit">Enviar</button>
+            </form>';
+    }
+
 ?>
