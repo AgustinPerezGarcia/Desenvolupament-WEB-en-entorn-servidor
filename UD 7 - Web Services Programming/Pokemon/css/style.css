@@ -2,9 +2,6 @@
 	font-family: "Arial";
 }
 
-/* ===============================
-   INFO POKÉMON
-=================================*/
 #pokemon{
 	text-align: center;
 	height: auto;
@@ -194,10 +191,6 @@ footer {
 	font-style: italic;
 }
 
-/* ===============================
-   INFO POKÉMON MÁS CHULO
-=================================*/
-
 #pokemon {
 	max-width: 450px;
 	margin: 20px auto;
@@ -236,10 +229,6 @@ footer {
 	font-weight: bold;
 	color: #222;
 }
-
-/* ===============================
-   FORMULARIO BONITO
-=================================*/
 
 form {
 	width: 400px;
@@ -288,7 +277,6 @@ form button:hover {
 	box-shadow: 0 0 10px rgba(255,140,0,0.8);
 }
 
-/* tablas interactivas */
 #tabla td {
 	border-radius: 8px;
 	transition: background .2s ease;
