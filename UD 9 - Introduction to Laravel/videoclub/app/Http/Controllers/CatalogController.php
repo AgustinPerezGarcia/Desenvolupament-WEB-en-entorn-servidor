@@ -182,9 +182,8 @@ class CatalogController
     /**
      * Show the form for creating a new resource.
      */
-    public function getCreate()
-    {
-        //
+    public function getCreate(): View{
+		return view('catalog.create');
     }
 
     /**
@@ -198,9 +197,8 @@ class CatalogController
     /**
      * Show the form for editing the specified resource.
      */
-    public function getEdit(string $id)
-    {
-        //
+    public function getEdit(string $id): View{
+        return view('catalog.edit', ['peli' => $this->arrayPeliculas[$id]]);
     }
 
 }

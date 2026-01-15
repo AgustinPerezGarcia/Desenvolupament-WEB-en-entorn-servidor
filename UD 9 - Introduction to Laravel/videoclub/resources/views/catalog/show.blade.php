@@ -12,13 +12,13 @@
             <p><strong>Resumen</strong>: {{ $peli['synopsis'] }}</p>
             <br>
             <p><strong>Estado</strong>: 
-            @if ($peli)
-                Pelicula actualmente alquilada.
+            @if ($peli['rented'])
+                Pelicula actualmente alquilada.</p>
+                <button type="button" class="btn btn-danger">Devolver pelicula</button>
             @else
-                Pelicula actialmente <strong>NO</strong> alquilada.
+                Pelicula actualmente <strong>NO</strong> alquilada.</p>
+                <button type="button" class="btn btn-primary">Alquilar pelicula</button>
             @endif
-            </p>
-            <button type="button" class="btn btn-danger">Devolver pelicula</button>
             <button type="button" class="btn btn-warning">Editar pelicula</button>
             <button type="button" class="btn btn-light">Volver al listado</button>
     </div>
