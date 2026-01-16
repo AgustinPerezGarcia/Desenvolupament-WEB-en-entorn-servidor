@@ -53,7 +53,7 @@
             type="checkbox"
             name="rented"
             id="rented"
-            @if($peli["rented"])
+            @if($peli['rented'])
                 checked
             @endif
         >
