@@ -2,17 +2,17 @@
 @section('content')
 <div class="row">
     <div class="col-sm-4">
-        <img src="{{$peli['poster']}}">
+        <img src="{{$peli->poster}}" width="100%">
     </div>
     <div class="col-sm-8">
-            <h1>{{ $peli['title'] }}</h1>
-            <h3>Año: {{$peli['year']}}</h3>
-            <h3>Director: {{ $peli['director'] }}</h3>
+            <h1>{{ $peli->title }}</h1>
+            <h3>Año: {{$peli->year}}</h3>
+            <h3>Director: {{ $peli->director }}</h3>
             <br>
-            <p><strong>Resumen</strong>: {{ $peli['synopsis'] }}</p>
+            <p><strong>Resumen</strong>: {{ $peli->synopsis }}</p>
             <br>
             <p><strong>Estado</strong>: 
-            @if ($peli['rented'])
+            @if ($peli->rented)
                 Pelicula actualmente alquilada.</p>
                 <button type="button" class="btn btn-danger">Devolver pelicula</button>
             @else

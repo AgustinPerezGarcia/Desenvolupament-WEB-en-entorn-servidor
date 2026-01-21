@@ -9,7 +9,7 @@
             type="text"
             name="title"
             id="title"
-            value="{{ $peli['title'] }}">
+            value="{{ $peli->title }}">
     </div>
 
     <br>
@@ -20,7 +20,7 @@
             type="number"
             name="year"
             id="year"
-            value="{{ $peli['year'] }}">
+            value="{{ $peli->year }}">
     </div>
 
     <br>
@@ -31,7 +31,7 @@
             type="text"
             name="director"
             id="director"
-            value="{{ $peli['director'] }}">
+            value="{{ $peli->director }}">
     </div>
 
     <br>
@@ -42,7 +42,7 @@
             type="text"
             name="poster"
             id="poster"
-            value="{{ $peli['poster'] }}">
+            value="{{ $peli->poster }}">
     </div>
 
     <br>
@@ -53,21 +53,17 @@
             type="checkbox"
             name="rented"
             id="rented"
-            @if($peli['rented'])
+            @if($peli->rented)
                 checked
             @endif
         >
     </div>
 
-    @if($peli['rented'])
-    @endif
-
-
     <br>
 
     <div>
         <label for="synopsis">Sinopsis</label><br>
-        <textarea name="synopsis" id="synopsis" rows="6" cols="50">{{ $peli['synopsis'] }}</textarea>
+        <textarea name="synopsis" id="synopsis" rows="6" cols="50">{{ $peli->synopsis }}</textarea>
     </div>
 
     <br>

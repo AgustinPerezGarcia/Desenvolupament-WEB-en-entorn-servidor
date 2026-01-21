@@ -2,11 +2,11 @@
 @section('content')
 <div class="row">
     @foreach($pelis as $key => $pelicula)
-        <div class="col-xs-6 col-sm-4 col-md-3 text-center">
-            <a href="{{ url('/catalog/show/' . $key) }}">
-                <img src="{{$pelicula['poster']}}" style="height:200px" />
+        <div class="col-xs-6 col-sm-4 col-md-3 text-center" style="margin-top: 5vh;">
+            <a href="{{ url('/catalog/show/' . $pelicula->id) }}">
+                <img src="{{$pelicula->poster}}" style="width: 100%; height:50vh" />
                 <span style="min-height:45px;margin:5px 0 10px 0">
-                    {{$pelicula['title']}}
+                    {{$pelicula->title}}
                 </span>
             </a>
         </div>
