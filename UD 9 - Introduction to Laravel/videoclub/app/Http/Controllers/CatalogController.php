@@ -43,4 +43,44 @@ class CatalogController
       return view('catalog.edit', ['peli' => $peliculas]);
     }
 
+    public function postCreate(Request $request){
+        $pelicula = new Pelicula();
+
+        $pelicula->title = $request->title;
+        $pelicula->year = $request->year;
+        $pelicula->director = $request->director;
+        $pelicula->poster = $request->poster;
+        $pelicula->rented = false;
+        $pelicula->synopsis = $request->synopsis;
+
+        $pelicula->save();
+
+        return redirect('/catalog');
+    }
+    
+    public function putEdit(Request $request, $id){
+        $pelicula = Pelicula::findOrFail($id);
+
+        $pelicula->title = $request->title;
+        $pelicula->year = $request->year;
+        $pelicula->director = $request->director;
+        $pelicula->poster = $request->poster;
+        $pelicula->synopsis = $request->synopsis;
+
+        $pelicula->save();
+
+        return redirect('/catalog/show/'.$id);
+    }
+
+    public function toggleRented($id)
+    {
+        $pelicula = Pelicula::findOrFail($id);
+
+        $pelicula->rented = !$pelicula->rented;
+        $pelicula->save();
+
+        return redirect('/catalog/show/' . $id);
+    }
+
+
 }

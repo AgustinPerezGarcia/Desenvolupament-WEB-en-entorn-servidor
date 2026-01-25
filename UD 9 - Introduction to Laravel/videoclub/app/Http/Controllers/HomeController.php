@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController
 {
-    public function getHome(): View{
-        return view('home');
+    public function getHome()
+    {
+        if (Auth::check()) {
+            return redirect('/catalog');
+        }
+
+        return redirect('/login');
     }
+
 }

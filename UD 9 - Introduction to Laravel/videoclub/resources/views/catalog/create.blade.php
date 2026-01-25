@@ -1,12 +1,13 @@
 @extends('layouts.master')
 @section('content')
-<form method="POST" action="{{ url('/catalog') }}">
+<form method="POST" action="{{ route('catalog.store') }}">
     @csrf
 
     <div>
         <label for="title">Título</label><br>
         <input
             type="text"
+            require
             name="title"
             id="title"
             value="{{ old('title') }}">
@@ -18,6 +19,7 @@
         <label for="year">Año</label><br>
         <input
             type="number"
+            require
             name="year"
             id="year"
             value="{{ old('year') }}">
@@ -29,6 +31,7 @@
         <label for="director">Director</label><br>
         <input
             type="text"
+            require
             name="director"
             id="director"
             value="{{ old('director') }}">
@@ -40,6 +43,7 @@
         <label for="poster">Poster (URL)</label><br>
         <input
             type="text"
+            require
             name="poster"
             id="poster"
             value="{{ old('poster') }}">
@@ -49,7 +53,7 @@
 
     <div>
         <label for="synopsis">Sinopsis</label><br>
-        <textarea name="synopsis" id="synopsis" rows="6" cols="50">{{ old('synopsis') }}</textarea>
+        <textarea name="synopsis" require id="synopsis" rows="6" cols="50">{{ old('synopsis') }}</textarea>
     </div>
 
     <br>

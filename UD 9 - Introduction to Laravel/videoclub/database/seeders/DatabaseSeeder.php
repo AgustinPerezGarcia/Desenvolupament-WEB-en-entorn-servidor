@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Pelicula; 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,9 +21,12 @@ class DatabaseSeeder extends Seeder
 
         self::seedCatalog();
         $this->command->info('Tabla catálogo inicializada con datos!');
+
+		self::seedUsers();
+		$this->command->info('Usuarios creados!');
     }
 
-    private function seedcatalog(): void
+    private function seedCatalog(): void
     {
         foreach ($this->arrayPeliculas as $pelicula) {
                 $p = new Pelicula;
@@ -35,6 +39,21 @@ class DatabaseSeeder extends Seeder
                 $p->save();
         }
     }
+
+	private function seedUsers(): void
+	{
+		User::create([
+			'name' => 'Admin',
+			'email' => 'admin@test.com',
+			'password' => Hash::make('12345678'),
+		]);
+
+		User::create([
+			'name' => 'User',
+			'email' => 'user@test.com',
+			'password' => Hash::make('12345678'),
+		]);
+	}
 
     private $arrayPeliculas = array(
 		array(

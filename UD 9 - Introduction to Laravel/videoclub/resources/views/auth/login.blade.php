@@ -1,6 +1,8 @@
+@extends('layouts.master')
+@section('content')
 <x-guest-layout>
     <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+    <x-auth-session-status :status="session('status')" />
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
@@ -45,3 +47,5 @@
         </div>
     </form>
 </x-guest-layout>
+
+@stop

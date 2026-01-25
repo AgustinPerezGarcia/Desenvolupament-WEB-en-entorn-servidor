@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('content')
-<form method="POST" action="{{ url('/catalog') }}">
+<form method="POST" action="{{ route('peli.update', $peli->id) }}">
     @csrf
+    @method('PUT')
 
     <div>
         <label for="title">Modificar película</label><br>
@@ -43,20 +44,6 @@
             name="poster"
             id="poster"
             value="{{ $peli->poster }}">
-    </div>
-
-    <br>
-
-    <div>
-        <label for="rented">Alquilada</label>
-        <input
-            type="checkbox"
-            name="rented"
-            id="rented"
-            @if($peli->rented)
-                checked
-            @endif
-        >
     </div>
 
     <br>
