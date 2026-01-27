@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="row">
         <div class="col-sm-4">
-            <img src="{{ asset('img/' . $peli->foto) }}" width="100%">
+            <img src="{{ asset('storage/peliculas/' . $peli->foto) }}">
         </div>
 
         <div class="col-sm-8">
@@ -40,11 +40,11 @@
                     @endif
                 </form>
 
-                <a href="{{ route('catalog.edit', $peli->id) }}" class="btn btn-warning">
+                <a href="{{ route('catalogo.edit', $peli->id) }}" class="btn btn-warning">
                     Editar película
                 </a>
 
-                <a href="{{ route('catalog.index') }}" class="btn btn-light">
+                <a href="{{ route('catalogo.index') }}" class="btn btn-light">
                     Volver al listado
                 </a>
             </div>
